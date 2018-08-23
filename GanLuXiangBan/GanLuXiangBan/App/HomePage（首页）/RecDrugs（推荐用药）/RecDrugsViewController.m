@@ -535,7 +535,7 @@
             
             if (array.count > 0) {
                 
-                [weakSelf.dataArray removeAllObjects];
+//                [weakSelf.dataArray removeAllObjects];
                 
                 for (NSDictionary *dict in array) {
                     
