@@ -35,7 +35,7 @@
             @strongify(self);
             
             BaseViewController *viewController = [NSClassFromString(i == 0 ? @"VisitDetailsViewController" : @"PaidConsultingViewController") new];
-            viewController.title = i == 0 ? @"出诊详情" : @"付费咨询";
+            viewController.title = i == 0 ? @"出诊计划" : @"付费咨询";
             if (self.goViewControllerBlock) {
                 self.goViewControllerBlock(viewController);
             }
