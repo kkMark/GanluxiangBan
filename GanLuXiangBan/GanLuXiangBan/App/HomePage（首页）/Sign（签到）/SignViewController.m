@@ -44,6 +44,8 @@
     UIImageView *logoImageView = [UIImageView new];
     logoImageView.image = [UIImage imageNamed:@"Public_Logo"];
     logoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    logoImageView.layer.cornerRadius = 35;
+    logoImageView.layer.masksToBounds = YES;
     [self.BGView addSubview:logoImageView];
     
     logoImageView.sd_layout
