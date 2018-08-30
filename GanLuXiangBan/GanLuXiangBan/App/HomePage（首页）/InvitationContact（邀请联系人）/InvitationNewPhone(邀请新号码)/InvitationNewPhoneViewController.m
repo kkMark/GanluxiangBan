@@ -132,7 +132,7 @@
     
     MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
     // 设置短信内容
-    vc.body = [NSString stringWithFormat:@"邀请患者：我是%@医院的%@医生，我在六医卫上开通了云端诊所，让我成为您的私人医生可好？关注请点击链接：http://glxb.leerhuo.com/yy/views/scan.html#/?drid=%@&type=0",GetUserDefault(UserHospital),GetUserDefault(UserName),GetUserDefault(UserID)];
+    vc.body = [NSString stringWithFormat:@"邀请患者：我是%@医院的%@医生，我在六医卫上开通了云端诊所，让我成为您的私人医生可好？关注请点击链接：http://pay.6ewei.com/yy/views/scan.html#/?drid=%@&type=0",GetUserDefault(UserHospital),GetUserDefault(UserName),GetUserDefault(UserID)];
     
     // 设置收件人列表
     vc.recipients = array;  // 号码数组

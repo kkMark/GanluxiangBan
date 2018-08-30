@@ -605,7 +605,7 @@
     message.title = [NSString stringWithFormat:@"我是%@医生，现推荐你用一下药物，请先关注我的微信公众号...",GetUserDefault(UserName)];
     
     WXWebpageObject *webpageObject = [WXWebpageObject object];
-    webpageObject.webpageUrl = [NSString stringWithFormat:@"http://glxb.leerhuo.com/yy/views/scan.html#/yyscan?recipeid=%@",self.recipeid];
+    webpageObject.webpageUrl = [NSString stringWithFormat:@"http://pay.6ewei.com/yy/views/scan.html#/yyscan?recipeid=%@",self.recipeid];
     message.mediaObject = webpageObject;
     
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];

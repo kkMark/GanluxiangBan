@@ -119,7 +119,7 @@
                                                            message.title = [NSString stringWithFormat:@"我是%@医生，欢迎关注我的六医卫公众账号，以便于为...",GetUserDefault(UserName)];
                                                            
                                                            WXWebpageObject *webpageObject = [WXWebpageObject object];
-                                                           webpageObject.webpageUrl = [NSString stringWithFormat:@"http://glxb.leerhuo.com/yy/views/scan.html#/?drid=%@&type=0",GetUserDefault(UserID)];
+                                                           webpageObject.webpageUrl = [NSString stringWithFormat:@"http://pay.6ewei.com/yy/views/scan.html#/?drid=%@&type=0",GetUserDefault(UserID)];
                                                            message.mediaObject = webpageObject;
                                                            
                                                            SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];

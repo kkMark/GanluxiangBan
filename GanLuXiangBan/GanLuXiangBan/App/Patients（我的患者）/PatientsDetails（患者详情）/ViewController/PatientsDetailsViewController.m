@@ -97,6 +97,7 @@
                     self.page = 1;
                     self.patientsDetailsView.dataSources = @[];
                     [self getDataSource];
+                    
                 }];
                 [self.navigationController pushViewController:vc animated:YES];
             }
