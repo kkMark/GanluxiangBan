@@ -73,9 +73,10 @@
 - (UIBarButtonItem *)rt_customBackItemWithTarget:(id)target action:(SEL)action {
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"Home_Return"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"backImg"] forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
 }
 
 #pragma mark - UIGestureRecognizerDelegate
