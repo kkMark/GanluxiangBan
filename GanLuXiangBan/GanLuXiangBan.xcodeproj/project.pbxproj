@@ -277,6 +277,7 @@
 		113EC89720D54A66009EC67E /* ChatKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113EC89620D54A66009EC67E /* ChatKeyboardView.m */; };
 		113EC89920D656F8009EC67E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113EC89820D656F8009EC67E /* AVFoundation.framework */; };
 		113EC8A020D660A3009EC67E /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 113EC89E20D660A3009EC67E /* libmp3lame.a */; };
+		11446224213FDEE5005BF552 /* InvitationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 11446223213FDEE5005BF552 /* InvitationRequest.m */; };
 		1146BD6520D8A5A30034D1A4 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146BD5F20D8A5A30034D1A4 /* SDPhotoBrowser.m */; };
 		1146BD6620D8A5A30034D1A4 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146BD6020D8A5A30034D1A4 /* SDWaitingView.m */; };
 		1146BD6720D8A5A30034D1A4 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146BD6120D8A5A30034D1A4 /* SDBrowserImageView.m */; };
@@ -929,6 +930,8 @@
 		113EC89820D656F8009EC67E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		113EC89E20D660A3009EC67E /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		113EC89F20D660A3009EC67E /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		11446222213FDEE5005BF552 /* InvitationRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvitationRequest.h; sourceTree = "<group>"; };
+		11446223213FDEE5005BF552 /* InvitationRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvitationRequest.m; sourceTree = "<group>"; };
 		1146BD5E20D8A5A30034D1A4 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		1146BD5F20D8A5A30034D1A4 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
 		1146BD6020D8A5A30034D1A4 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
@@ -3603,6 +3606,15 @@
 			path = lame;
 			sourceTree = "<group>";
 		};
+		11446221213FDCB5005BF552 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				11446222213FDEE5005BF552 /* InvitationRequest.h */,
+				11446223213FDEE5005BF552 /* InvitationRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		1146BD5D20D8A5A30034D1A4 /* SDPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -3683,6 +3695,7 @@
 		116EE4FB20BB92C10022D460 /* InvitationContact（邀请联系人） */ = {
 			isa = PBXGroup;
 			children = (
+				11446221213FDCB5005BF552 /* Request */,
 				116EE50F20BBFAB60022D460 /* InvitationNewPhone(邀请新号码) */,
 				116EE50020BB9D360022D460 /* Model */,
 				116EE4FC20BB92FE0022D460 /* InvitationContactViewController.h */,
@@ -4758,6 +4771,7 @@
 				0CAFD09A20DA603C006D4D0E /* AAOptions.m in Sources */,
 				0CA09FC720B46A630047DEAC /* LeftMenuView.m in Sources */,
 				11FD26B220C52365001056DD /* CollectionViewController.m in Sources */,
+				11446224213FDEE5005BF552 /* InvitationRequest.m in Sources */,
 				113EC88B20D4F5D2009EC67E /* ChatMp3TableViewCell.m in Sources */,
 				0C696DD820971AFC00827F12 /* PersonalViewController.m in Sources */,
 				11E6CACA20A920C60084968D /* ForgotPasswordViewController.m in Sources */,
