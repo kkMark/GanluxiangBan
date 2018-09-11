@@ -209,8 +209,8 @@
     if (cookie != nil) {
         [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"MyCook"];
     }
-
-    [manager POST:@"http://itf.leerhuo.com/api/MasterData/uploadAudio" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    
+    [manager POST:@"http://itf.6ewei.com/api/MasterData/uploadAudio" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
 
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -241,9 +241,13 @@
 
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
+        
+        HttpGeneralBackModel *model = [HttpGeneralBackModel new];
+        model.error = error;
+        model.retcode = 1;
+        
         if (complete) {
-            complete(nil);
+            complete(model);
         }
 
     }];

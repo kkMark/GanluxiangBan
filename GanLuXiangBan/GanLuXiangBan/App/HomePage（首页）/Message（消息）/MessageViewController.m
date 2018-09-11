@@ -314,13 +314,17 @@
         
         [[MessageRequest new] postUploadAudio:uploadFilePath complete:^(HttpGeneralBackModel *genneralBackModel) {
             
-            [[MessageRequest new] postSendVoiceMsgMid:weakSelf.mid content:genneralBackModel.data[0][@"Url"] msg_flag:@"0" complete:^(HttpGeneralBackModel *genneralBackModel) {
+            if (genneralBackModel.retcode == 0 && genneralBackModel != nil) {
                 
-                if (genneralBackModel.retcode == 0) {
-                    [weakSelf requst:1];
-                }
+                [[MessageRequest new] postSendVoiceMsgMid:weakSelf.mid content:genneralBackModel.data[0][@"Url"] msg_flag:@"0" complete:^(HttpGeneralBackModel *genneralBackModel) {
+                    
+                    if (genneralBackModel.retcode == 0) {
+                        [weakSelf requst:1];
+                    }
+                    
+                }];
                 
-            }];
+            }
             
         }];
         

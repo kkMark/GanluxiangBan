@@ -20,4 +20,6 @@
 
 @property (nonatomic, copy) id responseObject;
 
+@property (nonatomic ,copy) NSError *error;
+
 @end
