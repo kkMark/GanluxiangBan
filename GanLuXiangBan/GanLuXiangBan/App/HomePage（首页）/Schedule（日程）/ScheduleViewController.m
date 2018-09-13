@@ -40,6 +40,8 @@
     
     self.page = 1;
     [self.scheduleView.dataSource removeAllObjects];
+    [self.scheduleView.myTable reloadData];
+    
     [self request];
     
 }
@@ -76,7 +78,7 @@
     WS(weakSelf);
     [[ScheduleRequest new] getPreOrderListPageindex:self.page :^(HttpGeneralBackModel *genneralBackModel) {
         
-
+        
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *dict in genneralBackModel.data) {
             

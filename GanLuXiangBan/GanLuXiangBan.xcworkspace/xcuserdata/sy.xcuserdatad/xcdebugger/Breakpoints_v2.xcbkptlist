@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GanLuXiangBan/App/HomePage&#xff08;&#x9996;&#x9875;&#xff09;/RecDrugs&#xff08;&#x63a8;&#x8350;&#x7528;&#x836f;&#xff09;/RecDrugsViewController.m"
-            timestampString = "556680223.489696"
+            filePath = "GanLuXiangBan/App/Personal&#xff08;&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;&#xff09;/Setting&#xff08;&#x8bbe;&#x7f6e;&#xff09;/About&#xff08;&#x5173;&#x4e8e;&#x516d;&#x533b;&#x536b;&#xff09;/AboutViewController.m"
+            timestampString = "558499967.393941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "-block"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

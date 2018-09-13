@@ -24,6 +24,7 @@
 #import "SaveMedicalRcdModel.h"
 #import "NSString+ToJSON.h"
 #import "DrugDosageModel.h"
+#import "PatientsDetailsViewController.h"
 
 @interface MessageViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -140,6 +141,15 @@
 
 -(void)block{
     WS(weakSelf);
+    
+    self.chatView.patientsDetailPushBlock = ^(NSString *idString) {
+        
+        PatientsDetailsViewController *vc = [[PatientsDetailsViewController alloc] init];
+        vc.midString = idString;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+        
+    };
+    
     self.chatKeyboardView.keyboardTypeBlock = ^(NSInteger type) {
         
         if (type == 0) {

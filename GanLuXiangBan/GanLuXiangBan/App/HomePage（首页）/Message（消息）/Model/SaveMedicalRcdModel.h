@@ -31,7 +31,7 @@
 @property (nonatomic ,copy) NSArray *druguse_items;
 ///消息状态
 @property (nonatomic ,copy) NSString *msg_flag;
-///不知道干啥子用的
+///药方ID
 @property (nonatomic ,copy) NSString *visit_id;
 ///消息id
 @property (nonatomic ,copy) NSString *msg_id;

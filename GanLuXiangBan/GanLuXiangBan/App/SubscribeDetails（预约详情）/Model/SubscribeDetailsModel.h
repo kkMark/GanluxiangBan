@@ -44,5 +44,8 @@
 @property (nonatomic, strong) NSString *is_auto_close;
 /// 关闭时间
 @property (nonatomic, strong) NSString *close_time;
+/// 药方ID
+@property (nonatomic ,assign) NSInteger medical_id;
+
 
 @end

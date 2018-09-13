@@ -17,6 +17,8 @@ typedef void(^DrugPushBlock)(InitialRecipeInfoModel *initialRecipeInfoModel);
 
 typedef void(^DetailsPushBlock)(NSString *idString);
 
+typedef void(^PatientsDetailPushBlock)(NSString *idString);
+
 @interface ChatView : BaseView<UITableViewDelegate,UITableViewDataSource,SDPhotoBrowserDelegate>
 
 @property (nonatomic ,strong) UITableView *myTable;
@@ -38,5 +40,7 @@ typedef void(^DetailsPushBlock)(NSString *idString);
 @property (nonatomic ,copy) DrugPushBlock drugPushBlock;
 
 @property (nonatomic ,copy) DetailsPushBlock detailsPushBlock;
+
+@property (nonatomic ,copy) PatientsDetailPushBlock patientsDetailPushBlock;
 
 @end

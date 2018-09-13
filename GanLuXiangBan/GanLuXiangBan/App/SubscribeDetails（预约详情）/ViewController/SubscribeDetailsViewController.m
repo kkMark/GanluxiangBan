@@ -17,6 +17,7 @@
 #import "MessageRequest.h"
 #import "RefusedView.h"
 #import "ThroughView.h"
+#import "PrescriptionDetailsViewController.h"
 
 @interface SubscribeDetailsViewController ()
 
@@ -42,10 +43,18 @@
 
 - (void)goViewController {
     
-    PatientsDetailsViewController *vc = [PatientsDetailsViewController new];
-    vc.midString = self.subscribeDetailsView.model.mid;
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    if (self.subscribeDetailsView.model.medical_id > 0) {
+        
+        PrescriptionDetailsViewController *vc = [[PrescriptionDetailsViewController alloc] init];
+        vc.idString = [NSString stringWithFormat:@"%ld",self.subscribeDetailsView.model.medical_id];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else{
+        PatientsDetailsViewController *vc = [PatientsDetailsViewController new];
+        vc.midString = self.subscribeDetailsView.model.mid;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
 }
 
 - (void)addTypeView:(NSInteger)state {

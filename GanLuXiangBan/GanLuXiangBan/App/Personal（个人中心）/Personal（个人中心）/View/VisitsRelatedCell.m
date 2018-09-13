@@ -54,7 +54,7 @@
         
         // 文字
         UILabel *titleLabel = [UILabel new];
-        titleLabel.text = i == 0 ? @"普通出诊" : @"付费咨询";
+        titleLabel.text = i == 0 ? @"出诊计划" : @"付费咨询";
         titleLabel.font = [UIFont systemFontOfSize:14];
         titleLabel.textColor = [UIColor blackColor];
         titleLabel.textAlignment = NSTextAlignmentCenter;

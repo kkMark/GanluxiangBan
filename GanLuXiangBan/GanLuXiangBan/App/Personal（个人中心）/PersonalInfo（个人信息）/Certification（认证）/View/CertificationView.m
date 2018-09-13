@@ -66,7 +66,7 @@
             cell.backgroundColor = [UIColor whiteColor];
         }
         
-        cell.tipContent = @"1、确保上传的工作证以及证书能清晰看到姓名、照片以及职业资格编号等重要的信息。 \n2、工作人员在收到您的申请后2-3个工作日内会完成验证，验证完成会发放积分奖励。 \n3、证书照片仅用于认证，患者及第三方不可见。";
+        cell.tipContent = @"1、确保上传的身份证、工作证以及证书能清晰看到姓名、照片以及职业资格编号等重要的信息。 \n2、工作人员在收到您的申请后2-3个工作日内会完成验证，验证完成会发放积分奖励。 \n3、证书照片仅用于认证，患者及第三方不可见。";
         self.tipCellHeight = cell.tipCellHeight;
         return cell;
     }

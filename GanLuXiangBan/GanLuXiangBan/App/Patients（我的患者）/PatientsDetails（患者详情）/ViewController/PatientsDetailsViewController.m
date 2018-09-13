@@ -179,7 +179,6 @@
             saveModel.druguse_items = recDrugsModel.druguse_items;
             saveModel.msg_flag = @"0";
             saveModel.msg_id = @"0";
-            saveModel.msg_id = @"0";
             saveModel.visit_id = @"0";
             saveModel.allergy_codes = @"";
             saveModel.allergy_names = @"";

@@ -10,6 +10,7 @@
 
 @interface ChatModel : BaseModel
 
+@property (nonatomic ,copy) NSString *createuser;
 ///头像
 @property (nonatomic ,copy) NSString *head;
 ///确认

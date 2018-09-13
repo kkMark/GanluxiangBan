@@ -263,6 +263,12 @@
         
         chatImageCell.model = model;
         
+        chatImageCell.iconImageView.userInteractionEnabled = YES;
+        chatImageCell.iconImageView.sd_indexPath = indexPath;
+        
+        UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+        [chatImageCell.iconImageView addGestureRecognizer:headTap];
+        
         return chatImageCell;
         
     }else if ([model.msg_type integerValue] == 2){
@@ -272,6 +278,13 @@
             chatRemindCell.model = model;
             chatRemindCell.detailsButton.sd_indexPath = indexPath;
             [chatRemindCell.detailsButton addTarget:self action:@selector(detailsButton:) forControlEvents:UIControlEventTouchUpInside];
+            
+            chatRemindCell.iconImageView.userInteractionEnabled = YES;
+            chatRemindCell.iconImageView.sd_indexPath = indexPath;
+            
+            UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+            [chatRemindCell.iconImageView addGestureRecognizer:headTap];
+            
             return chatRemindCell;
             
         }else{
@@ -283,6 +296,12 @@
             chatDrugCell.detailsButton.sd_indexPath = indexPath;
             [chatDrugCell.detailsButton addTarget:self action:@selector(detailsButton:) forControlEvents:UIControlEventTouchUpInside];
             
+            chatDrugCell.iconImageView.userInteractionEnabled = YES;
+            chatDrugCell.iconImageView.sd_indexPath = indexPath;
+            
+            UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+            [chatDrugCell.iconImageView addGestureRecognizer:headTap];
+            
             return chatDrugCell;
             
         }
@@ -292,12 +311,25 @@
         chatRemindCell.model = model;
         chatRemindCell.detailsButton.sd_indexPath = indexPath;
         [chatRemindCell.detailsButton addTarget:self action:@selector(detailsButton:) forControlEvents:UIControlEventTouchUpInside];
+        
+        chatRemindCell.iconImageView.userInteractionEnabled = YES;
+        chatRemindCell.iconImageView.sd_indexPath = indexPath;
+        
+        UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+        [chatRemindCell.iconImageView addGestureRecognizer:headTap];
+        
         return chatRemindCell;
         
     }
     else if ([model.msg_type integerValue] == 4){
         
         chatMp3Cell.model = model;
+        
+        chatMp3Cell.iconImageView.userInteractionEnabled = YES;
+        chatMp3Cell.iconImageView.sd_indexPath = indexPath;
+        
+        UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+        [chatMp3Cell.iconImageView addGestureRecognizer:headTap];
         
         return chatMp3Cell;
         
@@ -306,6 +338,12 @@
     else{
         
         chatCell.model = model;
+        
+        chatCell.iconImageView.userInteractionEnabled = YES;
+        chatCell.iconImageView.sd_indexPath = indexPath;
+        
+        UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+        [chatCell.iconImageView addGestureRecognizer:headTap];
         
         return chatCell;
         
@@ -387,6 +425,23 @@
         [self.player replaceCurrentItemWithPlayerItem:self.playItem];
         
         [self.playItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+        
+    }
+    
+}
+
+-(void)headTap:(UITapGestureRecognizer *)sender{
+
+    MessageModel *messageModel = self.dataSource[sender.view.sd_indexPath.section];
+    
+    ChatModel *model = [ChatModel new];
+    [model setValuesForKeysWithDictionary:messageModel.items[sender.view.sd_indexPath.row]];
+    
+    if ([model.user_type integerValue] == 0) {
+        
+        if (self.patientsDetailPushBlock) {
+            self.patientsDetailPushBlock(model.createuser);
+        }
         
     }
     
