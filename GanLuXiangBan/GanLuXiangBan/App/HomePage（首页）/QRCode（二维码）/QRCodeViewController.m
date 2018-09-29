@@ -12,7 +12,9 @@
 #import "QRDoctorViewController.h"
 #import <WXApi.h>
 
-@interface QRCodeViewController ()
+@interface QRCodeViewController ()<NinaPagerViewDelegate>
+
+@property (nonatomic ,assign) NSInteger countInteger;
 
 @end
 
@@ -24,7 +26,9 @@
     self.title = @"邀请医患";
     
     [self initNav];
-
+    
+    self.countInteger = 0;
+    
 }
 
 -(void)initNav{
@@ -75,7 +79,18 @@
     ninaPagerView.unSelectTitleColor = [UIColor blackColor];
     ninaPagerView.underlineColor = kMainColor;
     ninaPagerView.selectBottomLinePer = 0.8;
+    ninaPagerView.delegate = self;
     [self.view addSubview:ninaPagerView];
+    
+}
+
+- (void)ninaCurrentPageIndex:(NSInteger)currentPage currentObject:(id)currentObject lastObject:(id)lastObject{
+    
+    if (currentPage == 0) {
+        self.countInteger = 0;
+    }else{
+        self.countInteger = 2;
+    }
     
 }
 
@@ -99,7 +114,7 @@
                                                              message.title = [NSString stringWithFormat:@"我是%@医生，欢迎关注我的六医卫公众账号，以便于为...",GetUserDefault(UserName)];
                                                              
                                                              WXWebpageObject *webpageObject = [WXWebpageObject object];
-                                                             webpageObject.webpageUrl = [NSString stringWithFormat:@"http://pay.6ewei.com/yy/views/scan.html#/?drid=%@",GetUserDefault(UserID)];
+                                                             webpageObject.webpageUrl = [NSString stringWithFormat:@"http://pay.6ewei.com/yy/views/scan.html#/?drid=%@&type=%ld",GetUserDefault(UserID),self.countInteger];
                                                              message.mediaObject = webpageObject;
                                                              
                                                              SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
@@ -119,7 +134,7 @@
                                                            message.title = [NSString stringWithFormat:@"我是%@医生，欢迎关注我的六医卫公众账号，以便于为...",GetUserDefault(UserName)];
                                                            
                                                            WXWebpageObject *webpageObject = [WXWebpageObject object];
-                                                           webpageObject.webpageUrl = [NSString stringWithFormat:@"http://pay.6ewei.com/yy/views/scan.html#/?drid=%@&type=0",GetUserDefault(UserID)];
+                                                           webpageObject.webpageUrl = [NSString stringWithFormat:@"http://pay.6ewei.com/yy/views/scan.html#/?drid=%@&type=%ld",GetUserDefault(UserID),self.countInteger];
                                                            message.mediaObject = webpageObject;
                                                            
                                                            SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];

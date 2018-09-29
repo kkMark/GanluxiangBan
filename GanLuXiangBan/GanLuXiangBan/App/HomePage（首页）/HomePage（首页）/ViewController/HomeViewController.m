@@ -345,22 +345,24 @@
         //获取轮播图
         self.homeRequest = [HomeRequest new];
         
-        NSMutableArray *imageArray = [NSMutableArray new];
+        NSMutableArray *imageArray = [NSMutableArray arrayWithArray:@[@"APPShow"]];
         
-        WS(weakSelf)
-        [self.homeRequest getBanner:^(HttpGeneralBackModel *model) {
-            
-            NSArray *array = model.data;
-            
-            for (NSDictionary *dict in array) {
-                
-                [imageArray addObject:[dict objectForKey:@"file_path"]];
-                
-            }
-            
-            weakSelf.bannerView.imageURLStringsGroup = imageArray;
-            
-        }];
+        self.bannerView.localizationImageNamesGroup = imageArray;
+        
+//        WS(weakSelf)
+//        [self.homeRequest getBanner:^(HttpGeneralBackModel *model) {
+//
+//            NSArray *array = model.data;
+//
+//            for (NSDictionary *dict in array) {
+//
+//                [imageArray addObject:[dict objectForKey:@"file_path"]];
+//
+//            }
+//
+//            weakSelf.bannerView.imageURLStringsGroup = imageArray;
+//
+//        }];
         
     }
     

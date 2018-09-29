@@ -32,7 +32,10 @@
 #define UserVersion                  @"User_UserVersion"
 
 //微信
-#define WeiXin_AppID     @"wx52746b02e5ecc962"
-#define WeiXin_AppSecret @"03dea81778479d1698c07ff12975c503"
+//#define WeiXin_AppID     @"wx52746b02e5ecc962"
+//#define WeiXin_AppSecret @"03dea81778479d1698c07ff12975c503"
+
+#define WeiXin_AppID     @"wxa3219896d1e43fe4"
+#define WeiXin_AppSecret @"75e10defccc74992e397dc5984d01d4e"
 
 #endif /* UserDefaultsMacro_h */
