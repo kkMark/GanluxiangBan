@@ -105,11 +105,12 @@
     if (!headerView) {
         
         headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
-        headerView.backgroundColor = [UIColor whiteColor];
+        headerView.backgroundColor = RGB(69, 118, 255);
         
         UILabel *label = [UILabel new];
         label.text = @"消息列表";
         label.font = [UIFont systemFontOfSize:16];
+        label.textColor = [UIColor whiteColor];
         [headerView addSubview:label];
         
         label.sd_layout
@@ -118,15 +119,15 @@
         .heightIs(16);
         [label setSingleLineAutoResizeWithMaxWidth:200];
         
-        UIView *view = [UIView new];
-        view.backgroundColor = kMainColor;
-        [headerView addSubview:view];
-        
-        view.sd_layout
-        .leftSpaceToView(headerView, 0)
-        .topSpaceToView(headerView, 5)
-        .bottomSpaceToView(headerView, 5)
-        .widthIs(5);
+//        UIView *view = [UIView new];
+//        view.backgroundColor = kMainColor;
+//        [headerView addSubview:view];
+//
+//        view.sd_layout
+//        .leftSpaceToView(headerView, 0)
+//        .topSpaceToView(headerView, 5)
+//        .bottomSpaceToView(headerView, 5)
+//        .widthIs(5);
         
     }
     

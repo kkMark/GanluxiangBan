@@ -27,7 +27,7 @@
 
 @property (nonatomic, strong) SDCycleScrollView *bannerView;
 
-@property (nonatomic ,strong) UIView *doctorView;
+@property (nonatomic ,strong) UIImageView *doctorView;
 
 @property (nonatomic ,strong) UIView *toolView;
 ///头像
@@ -122,8 +122,8 @@
     WS(weakSelf)
     [self.homeRequest getIndexInfo:^(HomeModel *model) {
         
-        weakSelf.patientLabel.text = [NSString stringWithFormat:@"%ld",model.patientNum];
-        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"%ld",model.evaluateNum];
+        weakSelf.patientLabel.text = [NSString stringWithFormat:@"（%ld）",model.patientNum];
+        weakSelf.evaluateLabel.text = [NSString stringWithFormat:@"（%ld）",model.evaluateNum];
         
         weakSelf.homeModel = model;
         
@@ -335,7 +335,7 @@
     
     if (!bannerView) {
         
-        bannerView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, 20, ScreenWidth, ScreenWidth / 2.5)];
+        bannerView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, ScreenHeight * 0.214, ScreenWidth, ScreenWidth / 2.5)];
         bannerView.delegate = self;
         bannerView.autoScrollTimeInterval = 5;
         bannerView.backgroundColor = [UIColor whiteColor];
@@ -371,15 +371,53 @@
 
 -(void)initDoctorView{
     
-    self.doctorView = [UIView new];
-    self.doctorView.backgroundColor = [UIColor whiteColor];
+    self.doctorView = [UIImageView new];
+    self.doctorView.image = [UIImage imageNamed:@"HomeBG"];
+    self.doctorView.contentMode = UIViewContentModeScaleAspectFill;
+    self.doctorView.userInteractionEnabled = YES;
     [self.view addSubview:self.doctorView];
     
-    self.doctorView.sd_layout
-    .topSpaceToView(self.bannerView, 0)
-    .centerXEqualToView(self.view)
-    .widthIs(ScreenWidth)
-    .heightIs(ScreenHeight * 0.164 /1.5);
+    if (IS_iPhoneX) {
+        
+        self.doctorView.sd_layout
+        .topSpaceToView(self.view, -20)
+        .centerXEqualToView(self.view)
+        .widthIs(ScreenWidth)
+        .heightIs(ScreenHeight * 0.214);
+        
+    }else{
+     
+        self.doctorView.sd_layout
+        .topSpaceToView(self.view, 0)
+        .centerXEqualToView(self.view)
+        .widthIs(ScreenWidth)
+        .heightIs(ScreenHeight * 0.214);
+        
+    }
+    
+    UILabel *label = [UILabel new];
+    label.text = @"首页";
+    label.font = [UIFont systemFontOfSize:24];
+    label.textColor = [UIColor whiteColor];
+    [self.doctorView addSubview:label];
+    
+    if (IS_iPhoneX) {
+        
+        label.sd_layout
+        .centerXEqualToView(self.doctorView)
+        .topSpaceToView(self.doctorView, 70)
+        .heightIs(18);
+        [label setSingleLineAutoResizeWithMaxWidth:200];
+
+    }else{
+       
+        label.sd_layout
+        .centerXEqualToView(self.doctorView)
+        .topSpaceToView(self.doctorView, 30)
+        .heightIs(18);
+        [label setSingleLineAutoResizeWithMaxWidth:200];
+
+    }
     
     self.headImageView = [UIImageView new];
     if (!GetUserDefault(UserHead)) {
@@ -387,9 +425,8 @@
     }else{
         [self.headImageView sd_setImageWithURL:[NSURL URLWithString:GetUserDefault(UserHead)]];
     }
-//    self.headImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.headImageView.layer setMasksToBounds:YES];
-    [self.headImageView.layer setCornerRadius:ScreenWidth*0.12];
+    [self.headImageView.layer setCornerRadius:ScreenWidth*0.08];
     self.headImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *headTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(head:)];
     [self.headImageView addGestureRecognizer:headTap];
@@ -399,7 +436,7 @@
     self.headImageView.sd_layout
     .leftSpaceToView(self.doctorView, ScreenWidth*0.05)
     .bottomSpaceToView(self.doctorView, 10)
-    .widthIs(ScreenWidth*0.24)
+    .widthIs(ScreenWidth * 0.16)
     .heightEqualToWidth();
     
     NSArray *imageArray = @[@"Home_Patient",@"Home_Comment"];
@@ -408,65 +445,66 @@
     for (int i = 0; i < imageArray.count; i++) {
 
         UIImageView *iconView = [UIImageView new];
-        iconView.image = [UIImage imageNamed:imageArray[i]];
-        iconView.contentMode = UIViewContentModeScaleAspectFit;
+//        iconView.image = [UIImage imageNamed:imageArray[i]];
+//        iconView.contentMode = UIViewContentModeScaleAspectFit;
         iconView.userInteractionEnabled = YES;
         iconView.tag = i + 200;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doctor:)];
         [iconView addGestureRecognizer:tap];
         [self.doctorView addSubview:iconView];
-        
+
         iconView.sd_layout
-        .leftSpaceToView(self.headImageView, ScreenWidth * 0.1 + i * ScreenWidth * 0.34)
-        .topSpaceToView(self.doctorView, ScreenHeight*0.014)
-        .widthIs(ScreenWidth * 0.073)
-        .heightEqualToWidth();
+        .leftSpaceToView(self.headImageView, 30 + i * ScreenWidth * 0.3)
+        .centerYEqualToView(self.headImageView)
+        .widthIs(100)
+        .heightIs(30);
         
         UILabel *label = [UILabel new];
         label.text = titleArray[i];
-        label.font = [UIFont systemFontOfSize:12];
+        label.font = [UIFont systemFontOfSize:14];
+        label.textColor = [UIColor whiteColor];
         [self.doctorView addSubview:label];
         
         label.sd_layout
-        .centerXEqualToView(iconView)
-        .topSpaceToView(iconView, ScreenHeight*0.014)
+        .centerYEqualToView(self.headImageView)
+        .leftSpaceToView(self.headImageView, 30 + i * ScreenWidth * 0.3)
         .heightIs(12);
         [label setSingleLineAutoResizeWithMaxWidth:100];
         
         if (i == 0) {
             
             self.patientLabel = [UILabel new];
-            self.patientLabel.textColor = RGB(0, 173, 255);
-            self.patientLabel.font = [UIFont systemFontOfSize:30];
+            self.patientLabel.textColor = [UIColor whiteColor];
+            self.patientLabel.font = [UIFont systemFontOfSize:14];
             [self.doctorView addSubview:self.patientLabel];
             
             self.patientLabel.sd_layout
-            .leftSpaceToView(iconView, ScreenWidth*0.05)
-            .centerYEqualToView(self.doctorView)
-            .heightIs(30);
+            .leftSpaceToView(label, 5)
+            .centerYEqualToView(self.headImageView)
+            .heightIs(14);
             [self.patientLabel setSingleLineAutoResizeWithMaxWidth:100];
             
-            UIView *lineView = [UIView new];
-            lineView.backgroundColor = RGB(235, 235, 235);
-            [self.doctorView addSubview:lineView];
-            
-            lineView.sd_layout
-            .leftSpaceToView(self.patientLabel, ScreenWidth * 0.1)
-            .topSpaceToView(self.doctorView, 5)
-            .bottomSpaceToView(self.doctorView, 5)
-            .widthIs(0.5);
+//            UIView *lineView = [UIView new];
+//            lineView.backgroundColor = RGB(235, 235, 235);
+//            [self.doctorView addSubview:lineView];
+//
+//            lineView.sd_layout
+//            .leftSpaceToView(self.patientLabel, ScreenWidth * 0.1)
+//            .topSpaceToView(self.doctorView, 5)
+//            .bottomSpaceToView(self.doctorView, 5)
+//            .widthIs(0.5);
             
         }else{
             
             self.evaluateLabel = [UILabel new];
-            self.evaluateLabel.textColor = RGB(0, 173, 255);
-            self.evaluateLabel.font = [UIFont systemFontOfSize:30];
+            self.evaluateLabel.textColor = [UIColor whiteColor];
+            self.evaluateLabel.font = [UIFont systemFontOfSize:14];
             [self.doctorView addSubview:self.evaluateLabel];
             
             self.evaluateLabel.sd_layout
-            .leftSpaceToView(iconView, 20)
-            .centerYEqualToView(self.doctorView)
-            .heightIs(30);
+            .leftSpaceToView(label, 5)
+            .centerYEqualToView(self.headImageView)
+            .heightIs(14);
             [self.evaluateLabel setSingleLineAutoResizeWithMaxWidth:100];
             
         }
@@ -498,7 +536,7 @@
     [self.view addSubview:self.toolView];
     
     self.toolView.sd_layout
-    .topSpaceToView(self.doctorView, 13)
+    .topSpaceToView(self.bannerView, 13)
     .centerXEqualToView(self.view)
     .heightIs(ScreenHeight * 0.164)
     .widthIs(ScreenWidth);
