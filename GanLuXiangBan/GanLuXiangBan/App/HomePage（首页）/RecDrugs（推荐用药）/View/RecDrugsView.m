@@ -561,7 +561,7 @@
     DrugDosageModel *drugDosageModel = self.dataSource[sender.view.tag - 1000];
     
     self.addDrugsView = [AddDrugsView new];
-    self.addDrugsView.type = 1;
+    self.addDrugsView.type = 2;
     self.addDrugsView.model = drugDosageModel;
     [[UIApplication sharedApplication].keyWindow addSubview:self.addDrugsView];
     

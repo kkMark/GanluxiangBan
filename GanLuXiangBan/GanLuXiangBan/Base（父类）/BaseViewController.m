@@ -49,6 +49,7 @@
     self.navigationController.navigationBar.barTintColor = kMainColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont boldSystemFontOfSize:18]};
+    
 }
 
 - (void)addNavRightTitle:(NSString *)titleString complete:(void (^)())complete {
@@ -75,8 +76,10 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:[UIImage imageNamed:@"backImg"] forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    return [[UIBarButtonItem alloc] initWithCustomView:btn];
+    [btn sizeToFit];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
     
+    return item;
 }
 
 #pragma mark - UIGestureRecognizerDelegate

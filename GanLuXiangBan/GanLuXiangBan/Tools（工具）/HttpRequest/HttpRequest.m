@@ -114,7 +114,7 @@
             [model setValuesForKeysWithDictionary:responseObject];
             model.responseObject = responseObject;
             
-            KLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
+            DebugLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
             
             if (success) {
                 success(model);
@@ -144,7 +144,7 @@
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
-            KLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
+            DebugLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
             
             if (error.code == -1001) {
                 NSLog(@"请求超时");
@@ -159,14 +159,14 @@
     }
     else {
         
-        KLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
+        DebugLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
         
         [manager POST:self.urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
             [model setValuesForKeysWithDictionary:responseObject];
             
-            KLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
+            DebugLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
             
             if (success) {
                 success(model);
@@ -176,7 +176,7 @@
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
-            KLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
+            DebugLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
             
             if (error.code == -1001) {
                 NSLog(@"请求超时");
@@ -215,7 +215,7 @@
     
     if (isGet) {
         
-        KLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
+        DebugLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
         
         [manager GET:self.urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
@@ -223,7 +223,7 @@
             [model setValuesForKeysWithDictionary:responseObject];
             model.responseObject = responseObject;
             
-            KLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
+            DebugLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
             
             if (success) {
                 success(model);
@@ -241,7 +241,7 @@
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
-            KLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
+            DebugLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
             
             if (error.code == -1001) {
                 NSLog(@"请求超时");
@@ -255,14 +255,14 @@
     }
     else {
         
-        KLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
+        DebugLog(@"urlString = %@\n\n  %@", self.urlString,parameters);
         
         [manager POST:self.urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
             HttpGeneralBackModel *model = [HttpGeneralBackModel new];
             [model setValuesForKeysWithDictionary:responseObject];
 
-            KLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
+            DebugLog(@"urlString = %@\n\n  %@  retcode = %ld  \n\n", self.urlString, model.data,model.retcode);
 
             if (success) {
                 success(model);
@@ -270,7 +270,7 @@
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
-            KLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
+            DebugLog(@"error = %@\n\n  %@  \n\n", self.urlString, error);
 
             if (error.code == -1001) {
                 NSLog(@"请求超时");

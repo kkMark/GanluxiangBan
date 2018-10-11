@@ -72,3 +72,10 @@
 #define NullString(str) ((str && [str isKindOfClass:[NSString class]] && [value length]) ? str : @"")
 
 #endif /* AppMacro_h */
+
+//---------------------- Debug模式下打印日志和当前行数 ----------------------
+#if DEBUG
+#define DebugLog(FORMAT, ...) fprintf(stderr,"╭═════════════════════════════════════════════════════════╮ \n║方法:%s 行:%d \n║详情:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define DebugLog(FORMAT, ...) nil
+#endif

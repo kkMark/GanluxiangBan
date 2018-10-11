@@ -74,7 +74,19 @@
     
     if (type == 1) {
         [self.collectionButton setTitle:@"保存" forState:UIControlStateNormal];
-    }else{
+    }else if (type == 2){
+        
+        [self.collectionButton setTitle:@"保存" forState:UIControlStateNormal];
+        
+        self.collectionButton.sd_resetLayout
+        .topSpaceToView(self.remarkTextView, 15)
+        .widthIs(ScreenWidth/2)
+        .heightIs(50)
+        .leftSpaceToView(self.deleteButton, 0);
+        
+        self.deleteButton.hidden = NO;
+        
+    } else{
         [self.collectionButton setTitle:@"添加" forState:UIControlStateNormal];
     }
     
@@ -326,6 +338,21 @@
         
     }
     
+    self.deleteButton = [UIButton new];
+    self.deleteButton.titleLabel.font = [UIFont systemFontOfSize: 16];
+    self.deleteButton.hidden = YES;
+    [self.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
+    [self.deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.deleteButton setBackgroundColor: RGB(112, 112, 112)];
+    [self.deleteButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
+    [self.scorllView addSubview:self.deleteButton];
+    
+    self.deleteButton.sd_layout
+    .topSpaceToView(self.remarkTextView, 15)
+    .widthIs(ScreenWidth/2)
+    .heightIs(50)
+    .leftSpaceToView(self.scorllView, 0);
+    
     self.collectionButton = [UIButton new];
     self.collectionButton.titleLabel.font = [UIFont systemFontOfSize: 16];
     [self.collectionButton setTitle:@"添加" forState:UIControlStateNormal];
@@ -347,8 +374,6 @@
         weakSelf.scorllView.contentSize = CGSizeMake(0, frame.origin.y + 50);
         
     };
-    
-    
     
 }
 
@@ -431,7 +456,7 @@
     
 }
 
--(void)collection:(UITapGestureRecognizer *)sender{
+-(void)collection:(UIButton *)sender{
     
     self.model.use_num = [NSString stringWithFormat:@"%ld",self.use_numInteger];
     self.model.day_use = [NSString stringWithFormat:@"%ld",self.day_useInteger];
@@ -440,12 +465,33 @@
     self.model.use_type = self.use_typeLabel.text;
     self.model.remark = self.remarkTextView.text;
     self.model.days = @"1";
-    if (self.type == 1) {
+    if (self.type == 1 || self.type == 2) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ModifyDurgDosage" object:self.model];
     }else{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AddDurgDosage" object:self.model];
     }
 
+    if (self.addDurgDosageBlock) {
+        self.addDurgDosageBlock(self.model);
+    }
+    
+}
+
+-(void)delete:(UIButton *)sender{
+    
+    self.model.use_num = [NSString stringWithFormat:@"%ld",self.use_numInteger];
+    self.model.day_use = [NSString stringWithFormat:@"%ld",self.day_useInteger];
+    self.model.day_use_num = self.day_use_numTextField.text;
+    self.model.unit_name = self.unit_nameLabel.text;
+    self.model.use_type = self.use_typeLabel.text;
+    self.model.remark = self.remarkTextView.text;
+    self.model.days = @"1";
+    if (self.type == 1 || self.type == 2) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DeleteDurgDosage" object:self.model];
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AddDurgDosage" object:self.model];
+    }
+    
     if (self.addDurgDosageBlock) {
         self.addDurgDosageBlock(self.model);
     }

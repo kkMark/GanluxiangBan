@@ -55,5 +55,6 @@ typedef void(^AddDurgDosageBlock)(DrugDosageModel *drugModel);
 @property (nonatomic ,strong) UILabel *residueLabel;// 输入文本时剩余字数
 
 @property (nonatomic ,strong) UIButton *collectionButton;
+@property (nonatomic ,strong) UIButton *deleteButton;
 
 @end

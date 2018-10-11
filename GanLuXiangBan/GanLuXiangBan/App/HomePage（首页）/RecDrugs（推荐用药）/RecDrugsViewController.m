@@ -80,6 +80,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addDurgDosage:) name:@"AddDurgDosage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modifyDurgDosage:) name:@"ModifyDurgDosage" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteDurgDosage:) name:@"DeleteDurgDosage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ContinuePrescription:) name:@"ContinuePrescription" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeRecDrug:) name:@"CloseRecDrug" object:nil];
@@ -328,6 +329,34 @@
             
             [self.dataArray replaceObjectAtIndex:i withObject:drugDosageModel];
             
+        }
+        
+    }
+    
+    self.recDrugsView.dataSource = self.dataArray;
+    
+    NSMutableArray *drugArray = [NSMutableArray array];
+    
+    for (DrugDosageModel *model in self.dataArray) {
+        
+        [drugArray addObject:model.drugid];
+        
+    }
+    
+    self.addDrugsView.array = drugArray;
+    
+}
+
+-(void)deleteDurgDosage:(NSNotification *)sender{
+    
+    DrugDosageModel *drugDosageModel = sender.object;
+    
+    for (int i = 0; i < self.dataArray.count; i++) {
+        
+        DrugDosageModel *model = self.dataArray[i];
+        
+        if ([model.drugid isEqualToString:drugDosageModel.drugid]) {
+            [self.dataArray removeObjectAtIndex:i];
         }
         
     }

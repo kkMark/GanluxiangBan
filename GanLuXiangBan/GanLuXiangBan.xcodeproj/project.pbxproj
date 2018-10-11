@@ -1211,7 +1211,6 @@
 				0C696B502097117800827F12 /* Base（父类） */,
 				0CDB1DCF2099B30800DCF82A /* Public（公用） */,
 				0C696C9C2097117900827F12 /* Category（类别） */,
-				0C83634C209C59FF005C4194 /* Resource（资源） */,
 				0C696B582097117800827F12 /* App */,
 				0C696B4D209710FD00827F12 /* Supporting Files */,
 			);
@@ -2116,13 +2115,6 @@
 				0C79920F209D4AC60027C4FA /* HttpRequest */,
 			);
 			path = "Tools（工具）";
-			sourceTree = "<group>";
-		};
-		0C83634C209C59FF005C4194 /* Resource（资源） */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Resource（资源）";
 			sourceTree = "<group>";
 		};
 		0C999AC320D534240066146D /* CheckList（检查单） */ = {

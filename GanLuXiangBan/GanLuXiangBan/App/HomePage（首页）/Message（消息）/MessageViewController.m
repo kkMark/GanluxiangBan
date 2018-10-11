@@ -546,7 +546,17 @@
             
             MessageModel *model1 = weakSelf.chatView.dataSource.lastObject;
             
-            if (![model.minute isEqualToString:model1.minute]) {
+            if ([model.minute isEqualToString:model1.minute]) {
+                
+                if (model1.items.count < model.items.count) {
+                    
+                    self.dateString = [genneralBackModel.data objectForKey:@"date"];
+                    
+                    [weakSelf.chatView addUnderData:array];
+                    
+                }
+                
+            }else{
                 
                 self.dateString = [genneralBackModel.data objectForKey:@"date"];
                 
