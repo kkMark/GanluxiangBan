@@ -53,9 +53,9 @@
         
         @strongify(self);
         NSString *titleString = @"助理上班时间：7 * 8小时\n(09:00 - 18:00)";
-        [self alertWithTitle:titleString msg:@"400-966-8838" isShowCancel:YES complete:^{
+        [self alertWithTitle:titleString msg:@"020-81978876" isShowCancel:YES complete:^{
             
-            NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@",@"400-966-8838"];
+            NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@",@"020-81978876"];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         }];
     }];

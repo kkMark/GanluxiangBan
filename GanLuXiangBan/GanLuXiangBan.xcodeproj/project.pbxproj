@@ -4994,7 +4994,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4P7EQZ5XW5;
+				DEVELOPMENT_TEAM = 6K454Q8M7V;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/GanLuXiangBan/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/GanLuXiangBan/Supporting Files/Info.plist";
@@ -5008,7 +5008,7 @@
 					"$(PROJECT_DIR)/GanLuXiangBan/Tools（工具）/lame",
 					"$(PROJECT_DIR)/GanLuXiangBan/Tools（工具）/VoiceConvert-master/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.leerhuo.glxb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhmp.lyw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5023,7 +5023,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4P7EQZ5XW5;
+				DEVELOPMENT_TEAM = 6K454Q8M7V;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/GanLuXiangBan/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/GanLuXiangBan/Supporting Files/Info.plist";
@@ -5037,7 +5037,7 @@
 					"$(PROJECT_DIR)/GanLuXiangBan/Tools（工具）/lame",
 					"$(PROJECT_DIR)/GanLuXiangBan/Tools（工具）/VoiceConvert-master/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.leerhuo.glxb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yyhmp.lyw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
