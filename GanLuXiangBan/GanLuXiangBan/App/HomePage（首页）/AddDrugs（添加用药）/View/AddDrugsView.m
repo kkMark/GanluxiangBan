@@ -111,11 +111,25 @@
     view.backgroundColor = RGB(237, 237, 237);
     [self addSubview:view];
     
-    view.sd_layout
-    .leftSpaceToView(self, 0)
-    .rightSpaceToView(self, 0)
-    .topSpaceToView(self, 260)
-    .heightIs(40);
+    
+    
+    if (IS_iPhoneX) {
+        
+        view.sd_layout
+        .leftSpaceToView(self, 0)
+        .rightSpaceToView(self, 0)
+        .topSpaceToView(self, ScreenHeight - 547)
+        .heightIs(40);
+        
+    }else{
+        
+        view.sd_layout
+        .leftSpaceToView(self, 0)
+        .rightSpaceToView(self, 0)
+        .topSpaceToView(self, ScreenHeight - 527)
+        .heightIs(40);
+        
+    }
     
     self.drugNameLabel = [UILabel new];
     self.drugNameLabel.textColor = [UIColor lightGrayColor];
