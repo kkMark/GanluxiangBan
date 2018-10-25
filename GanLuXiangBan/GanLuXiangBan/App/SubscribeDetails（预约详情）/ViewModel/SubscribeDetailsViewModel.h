@@ -17,6 +17,10 @@
 
 - (void)closeVisit:(NSString *)visitId complete:(void (^)(id object))complete;
 
+- (void)postExhaleId:(NSString *)id mobile:(NSString *)mobile complete:(void (^)(id object))complete;
+
+- (void)getBreatheOut:(NSString *)url complete:(void (^)(id object))complete;
+
 - (void)checkVisit:(NSString *)appid
           pre_type:(NSString *)pre_type
           is_check:(NSString *)is_check

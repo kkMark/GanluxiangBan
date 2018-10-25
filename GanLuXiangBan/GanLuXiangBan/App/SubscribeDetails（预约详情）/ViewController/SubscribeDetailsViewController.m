@@ -18,6 +18,7 @@
 #import "RefusedView.h"
 #import "ThroughView.h"
 #import "PrescriptionDetailsViewController.h"
+#import "SubscribeDetailsViewModel.h"
 
 @interface SubscribeDetailsViewController ()
 
@@ -269,7 +270,25 @@
                     if (i == 0) {
                         
                         [self alertWithTitle:@"呼出" msg:@"是否播打给患者" isShowCancel:YES complete:^{
-                           
+
+                            [[SubscribeDetailsViewModel new] postExhaleId:self.idString mobile:self.subscribeDetailsView.model.mobile complete:^(HttpGeneralBackModel *genneralBackModel) {
+                                
+                                if (genneralBackModel.retcode == 0) {
+                                    
+                                    [[SubscribeDetailsViewModel new] getBreatheOut:genneralBackModel.data complete:^(HttpGeneralBackModel *genneralBackModel) {
+                                        
+                                        [self.view makeToast:genneralBackModel.retmsg];
+                                        
+                                    }];
+                                    
+                                }else{
+                                  
+                                    [self.view makeToast:genneralBackModel.retmsg];
+                                    
+                                }
+                                
+                            }];
+                            
                             NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", self.subscribeDetailsView.model.mobile];
                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
                         }];

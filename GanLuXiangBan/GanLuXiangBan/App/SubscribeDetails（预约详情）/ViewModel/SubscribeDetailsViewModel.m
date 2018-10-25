@@ -27,6 +27,18 @@
     } failure:nil];
 }
 
+- (void)getBreatheOut:(NSString *)url complete:(void (^)(id object))complete{
+    
+    self.urlString = url;
+    [self requestWithIsGet:YES success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:nil];
+    
+}
 
 - (void)getHelpComplete:(void (^)(id object))complete {
     
@@ -51,6 +63,21 @@
         }
         
     } failure:nil];
+}
+
+- (void)postExhaleId:(NSString *)id mobile:(NSString *)mobile complete:(void (^)(id object))complete{
+    
+    self.urlString = [self getRequestUrl:@[@"PatientOrder", @"exhale"]];
+    self.parameters = @{ @"id": id,
+                         @"mobile": mobile};
+    [self requestWithIsGet:NO success:^(HttpGeneralBackModel *genneralBackModel) {
+        
+        if (complete) {
+            complete(genneralBackModel);
+        }
+        
+    } failure:nil];
+    
 }
 
 - (void)checkVisit:(NSString *)appid
