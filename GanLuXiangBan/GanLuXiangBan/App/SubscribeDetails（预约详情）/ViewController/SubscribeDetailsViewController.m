@@ -277,7 +277,11 @@
                                     
                                     [[SubscribeDetailsViewModel new] getBreatheOut:genneralBackModel.data complete:^(HttpGeneralBackModel *genneralBackModel) {
                                         
-                                        [self.view makeToast:genneralBackModel.retmsg];
+                                        if (genneralBackModel.retcode != 0) {
+                                            [self.view makeToast:genneralBackModel.retmsg];
+                                        }else{
+                                            [self.view makeToast:@"正在呼叫"];
+                                        }
                                         
                                     }];
                                     
@@ -289,8 +293,8 @@
                                 
                             }];
                             
-                            NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", self.subscribeDetailsView.model.mobile];
-                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+//                            NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", self.subscribeDetailsView.model.mobile];
+//                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
                         }];
                     }
                     else {

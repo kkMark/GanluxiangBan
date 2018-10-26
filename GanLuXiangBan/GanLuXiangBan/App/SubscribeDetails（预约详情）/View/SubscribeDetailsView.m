@@ -42,6 +42,7 @@
         endLabel.textColor = [UIColor colorWithHexString:@"0xbb4e03"];
         endLabel.textAlignment = NSTextAlignmentCenter;
         endLabel.backgroundColor = [UIColor colorWithHexString:@"0xffde02"];
+        
     }
     
     return endLabel;
